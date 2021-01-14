@@ -2,16 +2,33 @@ package com.example.lifecycleactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button mBtnNavigate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("BBB","onCreate");
+
+
+//        intent explicit : gui du lieu giữa các màn hình với nhau
+//        intent implicit : thuc hien hanh dong ko cụ thể
+
+        mBtnNavigate = findViewById(R.id.buttonNavigateScreen2);
+        mBtnNavigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
